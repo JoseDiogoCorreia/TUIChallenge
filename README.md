@@ -49,7 +49,7 @@ The project includes the following three feature files:
 
 	You can execute the tests using the following command:
 
-   		npx cucumber-js
+   		npm test
 
 Notes
  1. If a test fails the first time, please cancel the Test wit cntrl + c and re run it.

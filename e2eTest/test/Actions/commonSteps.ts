@@ -7,9 +7,6 @@ export class CommonSteps {
     this.page = page;
   }
 
-  async clickButton(buttonText: string) {
-    await this.page.locator(`button:has-text("${buttonText}")`).click();
-  }
 
   async handleConfirmationAlert() {
     this.page.on('dialog', async dialog => {

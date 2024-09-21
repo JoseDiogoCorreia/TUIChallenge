@@ -33,7 +33,7 @@ export class CustomerPage {
     await this.postCodeInput.fill(postCode);
   }
 
-  // Missing method for submitting the form
+ 
   async submitCustomerForm() {
     await this.submitButton.click();
   }
@@ -44,7 +44,7 @@ export class CustomerPage {
 
   async searchCustomer(customerName: string) {
     await this.searchCustomerInput.fill(customerName);
-    await this.page.waitForSelector('table'); // Wait for the customer table to load
+    await this.page.waitForSelector('table'); 
   }
 
   async verifyCustomerIsListed(customerName: string): Promise<boolean> {
