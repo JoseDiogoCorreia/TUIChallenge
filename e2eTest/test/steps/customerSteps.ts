@@ -76,7 +76,7 @@ When('I delete the customer {string}', async (customerName: string) => {
 Then('I should not see the customer {string} in the customer list', async (customerName: string) => {
   const isCustomerListed = await customerPage.verifyCustomerIsListed(customerName);
   expect(isCustomerListed).toBeFalsy();
-  quitTest();
+  //quitTest(); //uncomment if want page to close
 });
 
 async function quitTest() {
