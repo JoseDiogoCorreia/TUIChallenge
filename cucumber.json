@@ -13,7 +13,6 @@
         ],
         "requireModule":[
             "ts-node/register"
-        ],
-        "timeout": "20000"
+        ]
     }
 }

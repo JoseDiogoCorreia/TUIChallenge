@@ -1,4 +1,4 @@
-import { Given, When, Then } from '@cucumber/cucumber';
+import { Given, When, Then, context } from '@cucumber/cucumber';
 import { chromium, Page } from 'playwright';
 import { Homepage } from '../Actions/Homepage';
 import { CustomerPage } from '../Actions/CustomerPage';
@@ -12,16 +12,16 @@ let commonSteps: CommonSteps;
 
 
 //  navigate to the site
-Given('I navigate to the GlobalSQA Banking Project page', async () => {
+Given('I navigate to the GlobalSQA Banking Project page',{ timeout: 20000 }, async () => {
   const browser = await chromium.launch({ headless: false });
   const context = await browser.newContext();
   page = await context.newPage();
-  homepage = await new Homepage(page);
-  customerPage =  await new CustomerPage(page);
-  commonSteps = await new CommonSteps(page);
-
+  homepage = new Homepage(page);
+  customerPage = new CustomerPage(page);
+  commonSteps = new CommonSteps(page);
   await homepage.navigate();
 });
+
 //  choose a button 
 When('I choose {string}', async (option: string) => {
     await homepage.clickBankManagerLogin();
@@ -76,4 +76,10 @@ When('I delete the customer {string}', async (customerName: string) => {
 Then('I should not see the customer {string} in the customer list', async (customerName: string) => {
   const isCustomerListed = await customerPage.verifyCustomerIsListed(customerName);
   expect(isCustomerListed).toBeFalsy();
+  quitTest();
 });
+
+async function quitTest() {
+    await page.close(); 
+}
+
