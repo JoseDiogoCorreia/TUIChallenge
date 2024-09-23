@@ -13,13 +13,13 @@ export class CustomerPage {
 
   constructor(page: Page) {
     this.page = page;
-    this.addCustomerButton = page.locator('button[ng-click="addCust()"]');
-    this.firstNameInput = page.locator('input[ng-model="fName"]');
-    this.lastNameInput = page.locator('input[ng-model="lName"]');
-    this.postCodeInput = page.locator('input[ng-model="postCd"]');
-    this.submitButton = page.locator('button[type="submit"]');
-    this.customersTab = page.locator('button[ng-click="showCust()"]');
-    this.searchCustomerInput = page.locator('input[ng-model="searchCustomer"]');
+    this.addCustomerButton = page.getByRole('button', { name: 'Add Customer' });
+    this.firstNameInput = page.getByPlaceholder('First Name');
+    this.lastNameInput = page.getByPlaceholder('Last Name');
+    this.postCodeInput = page.getByPlaceholder('Post Code');
+    this.submitButton = page.getByRole('form').getByRole('button', { name: 'Add Customer' });
+    this.customersTab = page.getByRole('button', { name: 'Customers' });
+    this.searchCustomerInput = page.getByPlaceholder('Search Customer');
     this.customerTable = page.locator('table');
   }
 

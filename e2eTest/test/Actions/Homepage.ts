@@ -7,7 +7,7 @@ export class Homepage {
     
     constructor(page: Page){
         this.page = page;
-        this.bankManagerLoginButton = page.locator('button[ng-click="manager()"]');
+        this.bankManagerLoginButton = page.getByRole('button', { name: 'Bank Manager Login' });
     }
 
 
